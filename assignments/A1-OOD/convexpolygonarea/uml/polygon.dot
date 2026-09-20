@@ -1,0 +1,47 @@
+digraph PolygonClass {
+    graph [rankdir=LR]
+    node [shape=plain]
+
+    Polygon [label=<
+        <table border="1" cellborder="1" cellspacing="0">
+            <tr><td><b>Polygon</b></td></tr>
+            <tr><td align="left">
+                <b>Attributes</b><br/>
+                - __vertices: list[Point]
+            </td></tr>
+            <tr><td align="left">
+                <b>Properties</b><br/>
+                + vertices: list[Point]
+            </td></tr>
+            <tr><td align="left">
+                <b>Methods</b><br/>
+                + __init__(): None<br/>
+                + add_vertex(point: Point): None<br/>
+                + add_vertex(point: tuple[int, int]): None<br/>
+                + area(): float
+            </td></tr>
+        </table>
+    >]
+
+    Point [label=<
+        <table border="1" cellborder="1" cellspacing="0">
+            <tr><td><b>Point</b></td></tr>
+            <tr><td align="left">
+                <b>Attributes</b><br/>
+                - __x: int<br/>
+                - __y: int
+            </td></tr>
+            <tr><td align="left">
+                <b>Properties</b><br/>
+                + x: int<br/>
+                + y: int
+            </td></tr>
+            <tr><td align="left">
+                <b>Methods</b><br/>
+                + __init__(x: int, y: int): None
+            </td></tr>
+        </table>
+    >]
+
+    Polygon -> Point [label=" contains 0..* " arrowhead="diamond"]
+}
