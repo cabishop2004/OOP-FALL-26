@@ -24,6 +24,21 @@
 | **Self Grade** | 100/100 |
 | **Notes** | Configured the Codespace development environment, installed the required extensions, configured zsh with autosuggestions and syntax highlighting, built and tested the provided Docker course container, configured Git hooks and CI/CD, and merged the completed assignment branch into main. |
 
+### Assignment #1
+
+| Name | Value |
+| --- | --- |
+| **Name** | Classes, Objects, & Singleton Pattern |
+| **Problem** | Convex Polygon Area |
+| **Description** | Solved the Kattis Convex Polygon Area problem using object oriented design with Point, Polygon, and ConvexPolygonAreaApp classes. |
+| **Status** | Complete |
+| **Location** | assignments/A1-OOD/convexpolygonarea |
+| **Kattis Result** | Accepted, 7/7 test cases |
+| **Testing** | 17 unit tests, 3 custom whole program tests, and the provided Kattis sample |
+| **Coverage** | 95% total coverage |
+| **Documentation** | HTML documentation generated with pdoc |
+| **UML** | Three UML diagrams included |
+
 ## Labs
 
 Labs will be added here as they are completed.

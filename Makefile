@@ -1,32 +1,38 @@
-TEST = pytest
-TEST_ARGS = -s --verbose --color=yes
-TYPE_CHECK = mypy --strict --allow-untyped-decorators --ignore-missing-imports
-STYLE_CHECK = flake8
-COVERAGE = python -m pytest
-ASSIGNMENT = ./assignments
+A1 = assignments/A1-OOD/convexpolygonarea
 
 .PHONY: all
-all: check-style check-type run-test clean
-	@echo "All checks passed"
-
-.PHONY: check-type
-check-type:
-	@echo "FIXME"
+all: check-style check-type run-test program-test
+	@echo "All global checks passed"
 
 .PHONY: check-style
 check-style:
-	@echo "FIXME"
+	$(MAKE) -C $(A1) check-style
 
-# discover and run all tests
+.PHONY: fix-style
+fix-style:
+	$(MAKE) -C $(A1) fix-style
+
+.PHONY: check-type
+check-type:
+	$(MAKE) -C $(A1) check-type
+
 .PHONY: run-test
 run-test:
-	@echo "FIXME"
+	$(MAKE) -C $(A1) unit-test
+
+.PHONY: program-test
+program-test:
+	$(MAKE) -C $(A1) program-test
+
+.PHONY: coverage
+coverage:
+	$(MAKE) -C $(A1) coverage
+
+.PHONY: docs
+docs:
+	$(MAKE) -C $(A1) docs
 
 .PHONY: clean
 clean:
-	# remove all caches recursively
-	rm -rf `find . -type d -name __pycache__` # remove all pycache
-	rm -rf `find . -type d -name .pytest_cache` # remove all pytest cache
-	rm -rf `find . -type d -name .mypy_cache` # remove all mypy cache
-	rm -rf `find . -type d -name .hypothesis` # remove all hypothesis cache
-	rm -rf `find . -name .coverage` # remove all coverage cache 
+	$(MAKE) -C $(A1) clean
+	find . -type d -name .hypothesis -prune -exec rm -rf {} +

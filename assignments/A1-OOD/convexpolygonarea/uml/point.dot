@@ -1,0 +1,26 @@
+digraph PointClass {
+    graph [rankdir=TB]
+    node [shape=plain]
+
+    Point [label=<
+        <table border="1" cellborder="1" cellspacing="0">
+            <tr><td><b>Point</b></td></tr>
+            <tr><td align="left">
+                <b>Attributes</b><br/>
+                - __x: int<br/>
+                - __y: int
+            </td></tr>
+            <tr><td align="left">
+                <b>Properties</b><br/>
+                + x: int<br/>
+                + y: int
+            </td></tr>
+            <tr><td align="left">
+                <b>Methods</b><br/>
+                + __init__(x: int, y: int): None<br/>
+                + x(value: int): None<br/>
+                + y(value: int): None
+            </td></tr>
+        </table>
+    >]
+}
