@@ -77,6 +77,41 @@ class TestFormatters(unittest.TestCase):
 
         self.assertEqual(formatter.format(fraction), "25 0 / 98400")
 
+    def test_base_decorator_proper_fraction(self) -> None:
+        """test base decorator formatting a proper fraction."""
+        formatter: FormatterDecorator = FormatterDecorator(
+            MixedFractionFormatter()
+        )
+        fraction: Fraction = Fraction(3, 8)
+
+        self.assertEqual(formatter.format(fraction), "0 3/8")
+
+    def test_base_decorator_exact_fraction(self) -> None:
+        """test base decorator formatting an exact fraction."""
+        formatter: FormatterDecorator = FormatterDecorator(
+            MixedFractionFormatter()
+        )
+        fraction: Fraction = Fraction(20, 4)
+
+        self.assertEqual(formatter.format(fraction), "5 0/4")
+
+    def test_decorator_formatter_property_second_case(self) -> None:
+        """test the wrapped formatter property with another formatter."""
+        wrapped: MixedFractionFormatter = MixedFractionFormatter()
+        decorator: FormatterDecorator = FormatterDecorator(wrapped)
+
+        self.assertIs(decorator.formatter, wrapped)
+
+    def test_decorator_formatter_property_third_case(self) -> None:
+        """test the wrapped formatter property remains stable."""
+        wrapped: MixedFractionFormatter = MixedFractionFormatter()
+        decorator: FormatterDecorator = FormatterDecorator(wrapped)
+
+        first = decorator.formatter
+        second = decorator.formatter
+
+        self.assertIs(first, second)
+
 
 if __name__ == "__main__":
     unittest.main()
