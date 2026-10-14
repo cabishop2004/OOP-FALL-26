@@ -1,0 +1,35 @@
+digraph FormatterClasses {
+    rankdir=TB;
+    node [shape=record];
+
+    FractionFormatter [
+        label="{FractionFormatter (ABC)|
+|
++ format(fraction: Fraction): str\l}"
+    ];
+
+    MixedFractionFormatter [
+        label="{MixedFractionFormatter|
+|
++ format(fraction: Fraction): str\l}"
+    ];
+
+    FormatterDecorator [
+        label="{FormatterDecorator|
+- __formatter: FractionFormatter\l|
++ __init__(formatter: FractionFormatter)\l
++ formatter: FractionFormatter\l
++ format(fraction: Fraction): str\l}"
+    ];
+
+    KattisSpacingDecorator [
+        label="{KattisSpacingDecorator|
+|
++ format(fraction: Fraction): str\l}"
+    ];
+
+    FractionFormatter -> MixedFractionFormatter [arrowhead=empty];
+    FractionFormatter -> FormatterDecorator [arrowhead=empty];
+    FormatterDecorator -> KattisSpacingDecorator [arrowhead=empty];
+    FormatterDecorator -> FractionFormatter [style=dashed, label="wraps"];
+}

@@ -1,0 +1,44 @@
+digraph SystemInteractions {
+    rankdir=LR;
+    node [shape=record];
+
+    Manager [
+        label="{MixedFractionsManager|
+- __instance: ClassVar\l
+- __formatter: FractionFormatter\l|
++ __new__()\l
++ __init__()\l
++ instance()\l
++ formatter\l
++ parse_line(line: str)\l
++ solve(data: str)\l
++ run()\l}"
+    ];
+
+    Fraction [
+        label="{Fraction|
+- numerator\l
+- denominator\l|
++ mixed_parts()\l}"
+    ];
+
+    Decorator [
+        label="{KattisSpacingDecorator|
++ format(fraction)\l}"
+    ];
+
+    Formatter [
+        label="{MixedFractionFormatter|
++ format(fraction)\l}"
+    ];
+
+    Input [shape=box, label="stdin / Kattis input"];
+    Output [shape=box, label="Kattis output"];
+
+    Input -> Manager [label="run / solve"];
+    Manager -> Fraction [label="creates"];
+    Manager -> Decorator [label="formats with"];
+    Decorator -> Formatter [label="decorates"];
+    Formatter -> Fraction [label="reads mixed parts"];
+    Decorator -> Output [label="2 3 / 12"];
+}

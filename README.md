@@ -48,3 +48,19 @@ Labs will be added here as they are completed.
 1. [Course Container](https://github.com/rambasnet/course-container)
 2. [GitHub Codespaces Documentation](https://docs.github.com/en/codespaces)
 3. [Markdown Syntax](https://www.markdownguide.org/basic-syntax/)
+
+### Assignment #2
+
+| Name | Value |
+| --- | --- |
+| **Name** | Exceptions, Operator Overloading, & Decorator Pattern |
+| **Problem** | Mixed Fractions |
+| **Description** | Solved the Kattis Mixed Fractions problem using object-oriented design, custom exceptions, mathematical operator overloading, the Singleton pattern, and the Decorator pattern. |
+| **Status** | Complete |
+| **Location** | assignments/A2-decorator/mixedfractions |
+| **Kattis Result** | Accepted, 6/6 test cases |
+| **Testing** | 52 unit tests, Hypothesis property-based testing, 3 custom whole-program tests, and the provided Kattis sample |
+| **Coverage** | 100% total coverage |
+| **Security** | Bandit static security analysis |
+| **Documentation** | HTML documentation generated with pdoc |
+| **UML** | Three UML diagrams included |

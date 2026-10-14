@@ -42,3 +42,7 @@ jobs:
       - name: Run program tests
         run: |
           make program-test
+
+      - name: Check coverage
+        run: |
+          make coverage
