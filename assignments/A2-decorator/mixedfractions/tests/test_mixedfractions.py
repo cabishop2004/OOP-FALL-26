@@ -100,6 +100,45 @@ class TestMixedFractionsManager(unittest.TestCase):
 
         self.assertEqual(output.getvalue(), "")
 
+    def test_singleton_instance_third_reference(self) -> None:
+        """test repeated instance access returns the singleton."""
+        first: MixedFractionsManager = MixedFractionsManager.instance()
+        second: MixedFractionsManager = MixedFractionsManager.instance()
+        third: MixedFractionsManager = MixedFractionsManager.instance()
+
+        self.assertIs(first, third)
+        self.assertIs(second, third)
+
+    def test_singleton_instance_matches_constructor(self) -> None:
+        """test instance method matches direct singleton construction."""
+        via_instance: MixedFractionsManager = (
+            MixedFractionsManager.instance()
+        )
+        via_constructor: MixedFractionsManager = MixedFractionsManager()
+
+        self.assertIs(via_instance, via_constructor)
+
+    def test_formatter_property_is_stable(self) -> None:
+        """test formatter property returns the same formatter."""
+        manager: MixedFractionsManager = MixedFractionsManager.instance()
+
+        first = manager.formatter
+        second = manager.formatter
+
+        self.assertIs(first, second)
+
+    def test_formatter_property_formats_fraction(self) -> None:
+        """test formatter property returns a usable formatter."""
+        from fraction import Fraction
+
+        manager: MixedFractionsManager = MixedFractionsManager.instance()
+        fraction: Fraction = Fraction(8, 3)
+
+        self.assertEqual(
+            manager.formatter.format(fraction),
+            "2 2 / 3",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

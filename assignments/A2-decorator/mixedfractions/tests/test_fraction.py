@@ -253,6 +253,17 @@ class TestFraction(unittest.TestCase):
         self.assertEqual(result.numerator, 14)
         self.assertEqual(result.denominator, 15)
 
+    def test_valid_negative_denominator(self) -> None:
+        """test denominator validation with a negative nonzero value."""
+        self.assertTrue(Fraction.is_valid_denominator(-9))
+
+    def test_from_values_additional_pair(self) -> None:
+        """test another successful overloaded factory call."""
+        fraction: Fraction = Fraction.from_values(15, 4)
+
+        self.assertEqual(fraction.numerator, 15)
+        self.assertEqual(fraction.denominator, 4)
+
 
 if __name__ == "__main__":
     unittest.main()

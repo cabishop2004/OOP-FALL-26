@@ -59,7 +59,7 @@ Labs will be added here as they are completed.
 | **Status** | Complete |
 | **Location** | assignments/A2-decorator/mixedfractions |
 | **Kattis Result** | Accepted, 6/6 test cases |
-| **Testing** | 52 unit tests, Hypothesis property-based testing, 3 custom whole-program tests, and the provided Kattis sample |
+| **Testing** | 62 unit tests, Hypothesis property-based testing, 3 custom whole-program tests, and the provided Kattis sample |
 | **Coverage** | 100% total coverage |
 | **Security** | Bandit static security analysis |
 | **Documentation** | HTML documentation generated with pdoc |
