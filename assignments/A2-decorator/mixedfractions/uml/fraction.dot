@@ -1,0 +1,40 @@
+digraph FractionClass {
+    rankdir=TB;
+    node [shape=record];
+
+    FractionError [
+        label="{FractionError|+ ValueError}"
+    ];
+
+    ZeroDenominatorError [
+        label="{ZeroDenominatorError|+ FractionError}"
+    ];
+
+    MissingDenominatorError [
+        label="{MissingDenominatorError|+ FractionError}"
+    ];
+
+    Fraction [
+        label="{Fraction|
+- __numerator: int\l
+- __denominator: int\l|
++ __init__(numerator: int, denominator: int)\l
++ numerator: int\l
++ denominator: int\l
++ from_values(...): Fraction\l
++ is_valid_denominator(value: int): bool\l
++ whole_number(): int\l
++ remainder(): int\l
++ mixed_parts(): tuple[int, int, int]\l
++ __add__(other: Fraction): Fraction\l
++ __sub__(other: Fraction): Fraction\l
++ __mul__(other: Fraction): Fraction\l
++ __truediv__(other: Fraction): Fraction\l
+}"
+    ];
+
+    FractionError -> ZeroDenominatorError;
+    FractionError -> MissingDenominatorError;
+    Fraction -> ZeroDenominatorError [style=dashed, label="raises"];
+    Fraction -> MissingDenominatorError [style=dashed, label="raises"];
+}
