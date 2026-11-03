@@ -64,3 +64,21 @@ Labs will be added here as they are completed.
 | **Security** | Bandit static security analysis |
 | **Documentation** | HTML documentation generated with pdoc |
 | **UML** | Three UML diagrams included |
+
+
+### Assignment #3
+
+| Name | Value |
+| --- | --- |
+| **Name** | Advanced Unit Testing, API, & Adapter Pattern |
+| **Application** | Open-Meteo Weather Client |
+| **Description** | Built a Rich command line weather application that retrieves live Open-Meteo data and uses the Adapter pattern to translate third-party API responses into internal WeatherData objects. |
+| **Status** | In Progress |
+| **Location** | assignments/A3-adapter |
+| **API** | Open-Meteo Forecast API |
+| **UI** | Rich command line interface |
+| **Patterns** | Adapter and Singleton |
+| **Testing** | unittest, mocking and patching, Hypothesis |
+| **Coverage** | 100% total coverage |
+| **Documentation** | HTML documentation generated with pdoc |
+| **UML** | Three UML diagrams included |

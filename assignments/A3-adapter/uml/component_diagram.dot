@@ -1,0 +1,55 @@
+digraph A3Components {
+    graph [
+        label="Assignment 3 - Module and Component Interactions"
+        labelloc="t"
+        fontsize=20
+        rankdir=LR
+    ]
+
+    node [
+        shape=component
+        fontname="Helvetica"
+    ]
+
+    weather [
+        label="weather.py\nRich CLI"
+    ]
+
+    manager [
+        label="weather_manager.py\nSingleton Manager"
+    ]
+
+    client [
+        label="weather_client.py\nAPI Client"
+    ]
+
+    adapter [
+        label="weather_adapter.py\nAdapter + Model"
+    ]
+
+    api [
+        label="Open-Meteo\nREST API"
+        shape=ellipse
+    ]
+
+    weather -> manager [
+        label="requests weather"
+    ]
+
+    manager -> client [
+        label="retrieves"
+    ]
+
+    client -> api [
+        label="HTTPS"
+    ]
+
+    manager -> adapter [
+        label="normalizes"
+    ]
+
+    adapter -> weather [
+        label="WeatherData"
+        style=dashed
+    ]
+}

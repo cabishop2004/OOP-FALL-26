@@ -1,5 +1,6 @@
 A1 = assignments/A1-OOD/convexpolygonarea
 A2 = assignments/A2-decorator/mixedfractions
+A3 = assignments/A3-adapter
 
 .PHONY: all
 all: check-style check-type run-test program-test security
@@ -9,21 +10,25 @@ all: check-style check-type run-test program-test security
 check-style:
 	$(MAKE) -C $(A1) check-style
 	$(MAKE) -C $(A2) check-style
+	$(MAKE) -C $(A3) check-style
 
 .PHONY: fix-style
 fix-style:
 	$(MAKE) -C $(A1) fix-style
 	$(MAKE) -C $(A2) fix-style
+	$(MAKE) -C $(A3) fix-style
 
 .PHONY: check-type
 check-type:
 	$(MAKE) -C $(A1) check-type
 	$(MAKE) -C $(A2) check-type
+	$(MAKE) -C $(A3) check-type
 
 .PHONY: run-test
 run-test:
 	$(MAKE) -C $(A1) unit-test
 	$(MAKE) -C $(A2) unit-test
+	$(MAKE) -C $(A3) unit-test
 
 .PHONY: program-test
 program-test:
@@ -38,14 +43,17 @@ security:
 coverage:
 	$(MAKE) -C $(A1) coverage
 	$(MAKE) -C $(A2) coverage
+	$(MAKE) -C $(A3) coverage
 
 .PHONY: docs
 docs:
 	$(MAKE) -C $(A1) docs
 	$(MAKE) -C $(A2) docs
+	$(MAKE) -C $(A3) docs
 
 .PHONY: clean
 clean:
 	$(MAKE) -C $(A1) clean
 	$(MAKE) -C $(A2) clean
+	$(MAKE) -C $(A3) clean
 	find . -type d -name .hypothesis -prune -exec rm -rf {} +
