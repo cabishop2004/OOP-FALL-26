@@ -5,3 +5,5 @@ hypothesis
 pytest-cov
 codecov
 bandit
+requests
+rich

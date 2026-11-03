@@ -46,3 +46,7 @@ jobs:
       - name: Check coverage
         run: |
           make coverage
+
+      - name: Verify Assignment 3 adapter project
+        run: |
+          make -C assignments/A3-adapter all

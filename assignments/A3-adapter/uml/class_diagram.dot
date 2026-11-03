@@ -1,0 +1,92 @@
+digraph A3ClassDiagram {
+    graph [
+        label="Assignment 3 - Weather API Adapter Class Diagram"
+        labelloc="t"
+        fontsize=20
+        rankdir=LR
+    ]
+
+    node [
+        shape=record
+        fontname="Helvetica"
+        fontsize=10
+    ]
+
+    WeatherData [
+        label="{WeatherData|
+        - __latitude: float\l
+        - __longitude: float\l
+        - __temperature: float\l
+        - __humidity: int\l
+        - __wind_speed: float\l
+        - __precipitation: float\l
+        - __weather_code: int\l
+        |
+        + latitude: float\l
+        + longitude: float\l
+        + temperature: float\l
+        + humidity: int\l
+        + wind_speed: float\l
+        + precipitation: float\l
+        + weather_code: int\l
+        }"
+    ]
+
+    WeatherAdapter [
+        label="{WeatherAdapter|
+        |
+        + required_current_fields(): tuple\l
+        + is_supported(payload): bool\l
+        + adapt(payload): WeatherData\l
+        - _number(value, field): float\l
+        }"
+    ]
+
+    WeatherClient [
+        label="{WeatherClient|
+        - __base_url: str\l
+        - __timeout: float\l
+        |
+        + base_url: str\l
+        + timeout: float\l
+        + coordinates_are_valid(lat, lon): bool\l
+        + fetch_current(lat, lon): dict\l
+        }"
+    ]
+
+    WeatherManager [
+        label="{WeatherManager - Singleton|
+        - __instance: WeatherManager\l
+        - __client: WeatherClient\l
+        - __adapter: WeatherAdapter\l
+        |
+        + instance(): WeatherManager\l
+        + get_current_weather(lat, lon): WeatherData\l
+        }"
+    ]
+
+    WeatherApp [
+        label="{WeatherApp|
+        - __manager: WeatherManager\l
+        - __console: Console\l
+        |
+        + run(lat, lon): None\l
+        }"
+    ]
+
+    WeatherManager -> WeatherClient [
+        label="uses"
+    ]
+
+    WeatherManager -> WeatherAdapter [
+        label="uses"
+    ]
+
+    WeatherAdapter -> WeatherData [
+        label="creates"
+    ]
+
+    WeatherApp -> WeatherManager [
+        label="uses"
+    ]
+}

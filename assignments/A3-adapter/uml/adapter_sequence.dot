@@ -1,0 +1,70 @@
+digraph AdapterSequence {
+    graph [
+        label="Assignment 3 - Adapter Interaction Sequence"
+        labelloc="t"
+        fontsize=20
+        rankdir=LR
+    ]
+
+    node [
+        shape=box
+        fontname="Helvetica"
+    ]
+
+    User
+    WeatherApp
+    WeatherManager
+    WeatherClient
+    OpenMeteo [label="Open-Meteo API"]
+    WeatherAdapter
+    WeatherData
+
+    User -> WeatherApp [
+        label="latitude, longitude"
+    ]
+
+    WeatherApp -> WeatherManager [
+        label="get_current_weather()"
+    ]
+
+    WeatherManager -> WeatherClient [
+        label="fetch_current()"
+    ]
+
+    WeatherClient -> OpenMeteo [
+        label="HTTPS GET"
+    ]
+
+    OpenMeteo -> WeatherClient [
+        label="third party JSON"
+        style=dashed
+    ]
+
+    WeatherClient -> WeatherManager [
+        label="dict payload"
+        style=dashed
+    ]
+
+    WeatherManager -> WeatherAdapter [
+        label="adapt(payload)"
+    ]
+
+    WeatherAdapter -> WeatherData [
+        label="create normalized object"
+    ]
+
+    WeatherData -> WeatherManager [
+        label="WeatherData"
+        style=dashed
+    ]
+
+    WeatherManager -> WeatherApp [
+        label="WeatherData"
+        style=dashed
+    ]
+
+    WeatherApp -> User [
+        label="Rich weather table"
+        style=dashed
+    ]
+}
